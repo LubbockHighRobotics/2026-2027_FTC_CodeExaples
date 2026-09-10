@@ -1,7 +1,8 @@
 # FTC Java Starter
 
 Working example code for FTC teams, from your first spinning motor to a
-path-following autonomous with vision.
+path-following autonomous with vision. Built for the coding breakout at
+kickoff — but written so it still makes sense in November.
 
 **New here? → [START-HERE.md](START-HERE.md)**
 

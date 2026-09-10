@@ -1,9 +1,11 @@
 /*
  * PEDRO VERSION NOTE - read this before you paste
  * ---------------------------------------------------------------
- * Pedro's import PACKAGES have moved between versions (Pose, BezierLine,
- * PathChain and Follower have all lived in more than one package).
- * The CLASS NAMES and the structure below are stable.
+ * The imports below match Pedro 2.x, where Pose and BezierLine live in
+ * com.pedropathing.geometry and PathChain lives in com.pedropathing.paths.
+ * Pedro 1.x used com.pedropathing.localization and com.pedropathing.pathgen,
+ * and built the follower with `new Follower(hardwareMap, FConstants.class,
+ * LConstants.class)` instead of `Constants.createFollower(hardwareMap)`.
  *
  * If an import line is red in Android Studio: delete it, put the cursor
  * on the red class name, press Alt+Enter, and let Android Studio import
@@ -29,9 +31,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import com.pedropathing.follower.Follower;
-import com.pedropathing.localization.Pose;
-import com.pedropathing.pathgen.BezierLine;
-import com.pedropathing.pathgen.PathChain;
+import com.pedropathing.geometry.BezierLine;
+import com.pedropathing.geometry.Pose;
+import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Constants;
 import com.pedropathing.util.Timer;
 
@@ -121,8 +123,7 @@ public class AutoPedroWithMechanism extends OpMode {
         lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         claw.setPosition(CLOSED);
 
-        Constants.setConstants(FConstants.class, LConstants.class);
-        follower = new Follower(hardwareMap);
+        follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(startPose);
         buildPaths();
     }

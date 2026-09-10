@@ -24,6 +24,12 @@ the `package` line match the folder path, or Android Studio will complain.
 
 ## Before anything else
 
+**Check the Android Studio version the SDK wants.** It moves. Season releases
+through v11.1 needed Ladybug (2024.2); v11.2 raised it to Narwhal 3 Feature
+Drop (2025.1.3) and lists breaking build changes. Read the README of the exact
+release you download, because an older Android Studio fails the build with an
+error that does not say why.
+
 1. Install Android Studio and get the FTC SDK — `docs/setup/02-android-studio.md`
 2. Let the first Gradle sync finish. It's slow once and fast forever after.
 3. Set up Git — `docs/setup/05-git-for-teams.md`

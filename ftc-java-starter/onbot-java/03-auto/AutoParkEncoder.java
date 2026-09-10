@@ -85,8 +85,10 @@ public class AutoParkEncoder extends LinearOpMode {
                     remaining / (15 * TICKS_PER_CM)));
             double p = power * scale * sign;
 
-            fl.setPower(p + correction);  bl.setPower(p + correction);
-            fr.setPower(p - correction);  br.setPower(p - correction);
+            // IF IT CORRECTS THE WRONG WAY, swap these two signs. Which way
+            // is right depends on your motor directions and IMU mounting.
+            fl.setPower(p - correction);  bl.setPower(p - correction);
+            fr.setPower(p + correction);  br.setPower(p + correction);
 
             telemetry.addData("remaining cm", "%.1f", remaining / TICKS_PER_CM);
             telemetry.addData("heading error", "%.1f", error);
